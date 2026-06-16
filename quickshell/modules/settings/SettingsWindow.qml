@@ -50,7 +50,7 @@ PanelWindow {
     }
 
     HyprlandFocusGrab {
-        active: root.settings.open
+        active: false
         windows: [root]
         onCleared: root.settings.close()
     }

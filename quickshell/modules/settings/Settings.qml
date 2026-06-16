@@ -47,8 +47,15 @@ Scope {
 
     Loader {
         active: root.visibleState
-        sourceComponent: SettingsWindow {
-            settings: root
+        sourceComponent: Variants {
+            model: Quickshell.screens
+
+            SettingsWindow {
+                required property ShellScreen modelData
+
+                screen: modelData
+                settings: root
+            }
         }
     }
 

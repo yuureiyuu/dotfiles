@@ -28,26 +28,26 @@ transient_groove=false
 transient_scrollbar=true
 
 [GeneralColors]
-window.color=#201b29
-base.color=#16131d
-alt.base.color=#2c2535
-button.color=#312a3b
-light.color=#3b3247
-mid.light.color=#2c2535
-dark.color=#0e0c13
-mid.color=#45384f
-highlight.color=#a16d97
-inactive.highlight.color=#614561
-text.color=#d9d7e4
-window.text.color=#d9d7e4
-button.text.color=#d9d7e4
-disabled.text.color=#a3a4b9
-tooltip.text.color=#d9d7e4
-highlight.text.color=#d9d7e4
-link.color=#61505f
-link.visited.color=#775a73
+window.color=#1a1824
+base.color=#11111a
+alt.base.color=#23212f
+button.color=#282535
+light.color=#302d3f
+mid.light.color=#23212f
+dark.color=#0b0b11
+mid.color=#302e40
+highlight.color=#323849
+inactive.highlight.color=#2a2b3b
+text.color=#ccccd8
+window.text.color=#ccccd8
+button.text.color=#ccccd8
+disabled.text.color=#a2a3b7
+tooltip.text.color=#ccccd8
+highlight.text.color=#ccccd8
+link.color=#4e546b
+link.visited.color=#444a5f
 
-progress.indicator.text.color=#d9d7e4
+progress.indicator.text.color=#ccccd8
 
 [Hacks]
 respect_darkness=true
@@ -63,10 +63,10 @@ frame.right=3
 interior=true
 interior.element=button
 indicator.size=9
-text.normal.color=#d9d7e4
-text.focus.color=#a16d97
-text.press.color=#d9d7e4
-text.toggle.color=#d9d7e4
+text.normal.color=#ccccd8
+text.focus.color=#323849
+text.press.color=#ccccd8
+text.toggle.color=#ccccd8
 text.shadow=0
 text.margin=1
 text.iconspacing=4
@@ -77,7 +77,7 @@ text.margin.left=3
 text.margin.right=3
 text.shadow.xshift=2
 text.shadow.yshift=2
-text.shadow.color=#16131d
+text.shadow.color=#11111a
 text.shadow.alpha=120
 text.shadow.depth=1
 
@@ -95,7 +95,7 @@ interior=true
 inherits=PanelButtonCommand
 frame=false
 interior=false
-text.focus.color=#a16d97
+text.focus.color=#323849
 text.bold=true
 
 [IndicatorSpinBox]
@@ -159,8 +159,8 @@ frame.top=4
 frame.bottom=4
 frame.left=4
 frame.right=4
-text.press.color=#d9d7e4
-text.toggle.color=#d9d7e4
+text.press.color=#ccccd8
+text.toggle.color=#ccccd8
 min_width=+2
 min_height=2.0font
 
@@ -222,9 +222,9 @@ inherits=PanelButtonCommand
 frame.element=progress
 interior.element=progress
 text.margin=0
-text.focus.color=#a16d97
-text.press.color=#d9d7e4
-text.toggle.color=#d9d7e4
+text.focus.color=#323849
+text.press.color=#ccccd8
+text.toggle.color=#ccccd8
 text.bold=true
 
 [ProgressbarContents]
@@ -301,7 +301,7 @@ frame=true
 frame.element=menuitem
 interior.element=menuitem
 indicator.element=menuitem
-text.focus.color=#a16d97
+text.focus.color=#323849
 text.margin.top=1
 text.margin.bottom=1
 text.margin.left=3
@@ -328,8 +328,8 @@ frame=false
 interior.element=titlebar
 indicator.size=12
 indicator.element=mdi
-text.normal.color=#d9d7e4
-text.focus.color=#a16d97
+text.normal.color=#ccccd8
+text.focus.color=#323849
 text.bold=true
 text.italic=true
 

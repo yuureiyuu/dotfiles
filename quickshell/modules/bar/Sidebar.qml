@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Effects
 import QtQuick.Layouts
@@ -13,24 +15,45 @@ Scope {
 
     readonly property string position: SettingsService.barPosition
 
-    SideBarWindow {
-        visible: root.visible && root.position === "right"
-        side: "right"
-        onPowerClicked: root.powerClicked()
-        onBarPanelClicked: root.barPanelClicked()
+    Variants {
+        model: Quickshell.screens
+
+        SideBarWindow {
+            required property ShellScreen modelData
+
+            screen: modelData
+            visible: root.visible && root.position === "right"
+            side: "right"
+            onPowerClicked: root.powerClicked()
+            onBarPanelClicked: root.barPanelClicked()
+        }
     }
 
-    SideBarWindow {
-        visible: root.visible && root.position === "left"
-        side: "left"
-        onPowerClicked: root.powerClicked()
-        onBarPanelClicked: root.barPanelClicked()
+    Variants {
+        model: Quickshell.screens
+
+        SideBarWindow {
+            required property ShellScreen modelData
+
+            screen: modelData
+            visible: root.visible && root.position === "left"
+            side: "left"
+            onPowerClicked: root.powerClicked()
+            onBarPanelClicked: root.barPanelClicked()
+        }
     }
 
-    TopBarWindow {
-        visible: root.visible && root.position === "top"
-        onPowerClicked: root.powerClicked()
-        onBarPanelClicked: root.barPanelClicked()
+    Variants {
+        model: Quickshell.screens
+
+        TopBarWindow {
+            required property ShellScreen modelData
+
+            screen: modelData
+            visible: root.visible && root.position === "top"
+            onPowerClicked: root.powerClicked()
+            onBarPanelClicked: root.barPanelClicked()
+        }
     }
 
     component SideBarWindow: PanelWindow {

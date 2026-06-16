@@ -47,8 +47,15 @@ Scope {
 
     Loader {
         active: root.visibleState
-        sourceComponent: BarPanelWindow {
-            panel: root
+        sourceComponent: Variants {
+            model: Quickshell.screens
+
+            BarPanelWindow {
+                required property ShellScreen modelData
+
+                screen: modelData
+                panel: root
+            }
         }
     }
 

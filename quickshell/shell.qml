@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import Quickshell
 import "./services"
 import "./modules/bar/"
@@ -13,9 +15,18 @@ import "./modules/notifications/"
 import "./modules/barPanel/"
 import "./modules/osd/"
 import "./modules/screenshot/"
+import "./modules/hotkeys/"
 
 ShellRoot {
-    Background {}
+    Variants {
+        model: Quickshell.screens
+
+        Background {
+            required property ShellScreen modelData
+
+            screen: modelData
+        }
+    }
 
     LockScreen {
         id: lockScreen
@@ -30,6 +41,7 @@ ShellRoot {
             dashboard.close();
             settings.close();
             barPanel.close();
+            hotkeys.close();
         }
     }
 
@@ -45,13 +57,25 @@ ShellRoot {
         id: settings
     }
 
+    Hotkeys {
+        id: hotkeys
+    }
+
     Sidebar {
-        visible: !sessionWidget.visible && !lockScreen.locked && !LockState.pendingLock && !barPanel.visibleState && !settings.visibleState
+        visible: !sessionWidget.visible && !lockScreen.locked && !LockState.pendingLock && !barPanel.visibleState && !settings.visibleState && !hotkeys.visibleState
         onPowerClicked: sessionWidget.toggle()
         onBarPanelClicked: barPanel.toggle()
     }
 
-    NotificationPopups {}
+    Variants {
+        model: Quickshell.screens
+
+        NotificationPopups {
+            required property ShellScreen modelData
+
+            screen: modelData
+        }
+    }
 
     LevelOsdController {}
 
@@ -69,13 +93,20 @@ ShellRoot {
         id: systemMonitor
     }
 
-    BottomIsland {
-        appLauncher: appLauncher
-        dashboard: dashboard
-        settings: settings
-        systemMonitor: systemMonitor
-        onDashboardClicked: dashboard.toggle()
-        onSettingsClicked: settings.toggle()
+    Variants {
+        model: Quickshell.screens
+
+        BottomIsland {
+            required property ShellScreen modelData
+
+            screen: modelData
+            appLauncher: appLauncher
+            dashboard: dashboard
+            settings: settings
+            systemMonitor: systemMonitor
+            onDashboardClicked: dashboard.toggle()
+            onSettingsClicked: settings.toggle()
+        }
     }
 }
 //Quickshell Types: "https://quickshell.org/docs/v0.2.1/types"

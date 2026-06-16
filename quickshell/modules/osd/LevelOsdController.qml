@@ -7,7 +7,15 @@ import "../../services"
 Scope {
     id: root
 
-    LevelOsd {}
+    Variants {
+        model: Quickshell.screens
+
+        LevelOsd {
+            required property ShellScreen modelData
+
+            screen: modelData
+        }
+    }
 
     IpcHandler {
         target: "audio"

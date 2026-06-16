@@ -13,6 +13,13 @@ hl.monitor({
   scale = 1,
 })
 
+hl.monitor({
+  output = "HDMI-A-1",
+  mode = "1920x1080@120.00000",
+  position = "1366x0",
+  scale = 1,
+})
+
 ---------------------
 ---- MY PROGRAMS ----
 ---------------------
@@ -143,6 +150,12 @@ hl.layer_rule({
   no_anim = true,
 })
 
+hl.layer_rule({
+  name = "quickshell_hotkeys_no_anim",
+  match = { namespace = "quickshell:hotkeys" },
+  no_anim = true,
+})
+
 hl.window_rule({
   name = "quickshell_no_window_anim",
   match = { class = "^(quickshell|qs)$" },
@@ -208,6 +221,7 @@ hl.bind("SUPER + SHIFT + M", hl.dsp.exec_cmd("quickshell ipc call systemMonitor 
 hl.bind(mainMod .. " + SHIFT + D", hl.dsp.exec_cmd("qs ipc call dashboard toggle"))
 hl.bind("SUPER + SHIFT + P", hl.dsp.exec_cmd("qs ipc call barPanel toggle"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("qs ipc call settings toggle"))
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("qs ipc call hotkeys toggle"))
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())

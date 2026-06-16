@@ -30,7 +30,7 @@ PanelWindow {
     }
 
     HyprlandFocusGrab {
-        active: true
+        active: false
         windows: [root]
         onCleared: launcher.close()
     }

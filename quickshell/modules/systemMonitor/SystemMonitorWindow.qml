@@ -59,7 +59,7 @@ PanelWindow {
     SystemStatsConsumer {}
 
     HyprlandFocusGrab {
-        active: true
+        active: false
         windows: [root]
         onCleared: monitor.close()
     }

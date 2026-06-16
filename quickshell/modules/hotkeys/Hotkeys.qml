@@ -1,7 +1,10 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-import "../launcher/LauncherWindow.qml"
+import Quickshell.Io
+import "../../services"
 
 Scope {
     id: root
@@ -9,7 +12,6 @@ Scope {
     property bool open: false
     property bool closing: false
     property real revealProgress: 0
-    readonly property bool revealed: revealProgress >= 0.999
     readonly property bool visibleState: open || closing || revealProgress > 0.001
 
     function toggle() {
@@ -27,7 +29,7 @@ Scope {
         closing = false;
         open = true;
         revealAnimation.to = 1;
-        revealAnimation.duration = Math.max(1, 260 * (1 - revealProgress));
+        revealAnimation.duration = Math.max(1, SettingsService.duration(220) * (1 - revealProgress));
         revealAnimation.start();
     }
 
@@ -39,12 +41,8 @@ Scope {
         open = false;
         closing = true;
         revealAnimation.to = 0;
-        revealAnimation.duration = Math.max(1, 260 * revealProgress);
+        revealAnimation.duration = Math.max(1, SettingsService.duration(180) * revealProgress);
         revealAnimation.start();
-    }
-
-    LauncherModel {
-        id: launcherData
     }
 
     Loader {
@@ -52,14 +50,43 @@ Scope {
         sourceComponent: Variants {
             model: Quickshell.screens
 
-            LauncherWindow {
+            HotkeysWindow {
                 required property ShellScreen modelData
 
                 screen: modelData
-                dataModel: launcherData
-                launcher: root
+                hotkeys: root
             }
         }
+    }
+
+    IpcHandler {
+        target: "hotkeys"
+
+        function toggle(): void {
+            root.toggle();
+        }
+
+        function show(): void {
+            root.show();
+        }
+
+        function close(): void {
+            root.close();
+        }
+    }
+
+    GlobalShortcut {
+        name: "hotkeysToggle"
+        description: "Toggle hotkeys overview"
+        onPressed: root.toggle()
+    }
+
+    Process {
+        id: hyprBind
+
+        command: ["hyprctl", "keyword", "bind", "$mainMod SHIFT, H, global, quickshell:hotkeysToggle"]
+        stdout: StdioCollector {}
+        stderr: StdioCollector {}
     }
 
     NumberAnimation {
@@ -67,7 +94,7 @@ Scope {
 
         target: root
         property: "revealProgress"
-        duration: 260
+        duration: SettingsService.duration(220)
         easing.type: Easing.OutCubic
 
         onFinished: {
@@ -80,9 +107,8 @@ Scope {
         }
     }
 
-    GlobalShortcut {
-        name: "applauncherToggle"
-        description: "Toggle app launcher"
-        onPressed: root.toggle()
+    Component.onCompleted: {
+        if ((Quickshell.env("HYPRLAND_INSTANCE_SIGNATURE") || "").length)
+            hyprBind.running = true;
     }
 }

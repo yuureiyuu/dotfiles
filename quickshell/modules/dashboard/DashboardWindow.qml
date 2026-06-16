@@ -92,7 +92,7 @@ PanelWindow {
     }
 
     HyprlandFocusGrab {
-        active: !root.dashboard.closing
+        active: false
         windows: [root]
         onCleared: root.requestClose()
     }

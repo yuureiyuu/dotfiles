@@ -17,9 +17,9 @@ Scope {
     readonly property bool locked: LockState.locked
     readonly property string avatarPath: (Quickshell.env("HOME") || "") + "/.face"
     property date currentDate: new Date()
-    readonly property real layoutScale: Math.max(0.72, Math.min(1.0, Math.min(screenWidth / 1440, screenHeight / 960)))
-    readonly property real screenWidth: sessionLockSurface.width > 0 ? sessionLockSurface.width : 1366
-    readonly property real screenHeight: sessionLockSurface.height > 0 ? sessionLockSurface.height : 768
+    property real surfaceWidth: 1366
+    property real surfaceHeight: 768
+    readonly property real layoutScale: Math.max(0.72, Math.min(1.0, Math.min(surfaceWidth / 1440, surfaceHeight / 960)))
     property string passwordBuffer: ""
     property string statusText: ""
     property bool passwordActive: passwordPam.active
@@ -168,6 +168,9 @@ Scope {
         WlSessionLockSurface {
             id: sessionLockSurface
             color: "transparent"
+
+            onWidthChanged: root.surfaceWidth = width > 0 ? width : 1366
+            onHeightChanged: root.surfaceHeight = height > 0 ? height : 768
 
             Rectangle {
                 anchors.fill: parent

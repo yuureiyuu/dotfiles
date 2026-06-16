@@ -1,12 +1,39 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
 import "../../services"
 
-PanelWindow {
+Scope {
     id: root
 
-    // Cover the entire screen
+    property bool visible: false
+
+    function dismiss() {
+        visible = false;
+    }
+
+    function toggle() {
+        visible = !visible;
+    }
+
+    Variants {
+        model: Quickshell.screens
+
+        SessionWindow {
+            required property ShellScreen modelData
+
+            screen: modelData
+        }
+    }
+
+    component SessionWindow: PanelWindow {
+        id: windowRoot
+
+    visible: root.visible
+
+        // Cover the entire screen
     anchors {
         top: true
         bottom: true
@@ -19,12 +46,11 @@ PanelWindow {
     WlrLayershell.keyboardFocus: WlrKeyboardFocus.Exclusive
 
     color: "transparent"
-    visible: false
     property int selectedIndex: 0
     readonly property var sessionButtons: [btnReboot, btnPowerOff, btnLogout, btnSleep, btnGif, btnLock]
 
     function dismiss() {
-        visible = false;
+        root.dismiss();
     }
 
     function selectButton(index) {
@@ -54,26 +80,26 @@ PanelWindow {
         Keys.onEscapePressed: root.dismiss()
         Keys.onPressed: event => {
             if (event.key === Qt.Key_Left) {
-                root.moveSelection(-1);
+                windowRoot.moveSelection(-1);
                 event.accepted = true;
             } else if (event.key === Qt.Key_Right) {
-                root.moveSelection(1);
+                windowRoot.moveSelection(1);
                 event.accepted = true;
             } else if (event.key === Qt.Key_Up) {
-                root.moveSelection(-3);
+                windowRoot.moveSelection(-3);
                 event.accepted = true;
             } else if (event.key === Qt.Key_Down) {
-                root.moveSelection(3);
+                windowRoot.moveSelection(3);
                 event.accepted = true;
             } else if (event.key === Qt.Key_Return || event.key === Qt.Key_Enter || event.key === Qt.Key_Space) {
-                root.activateSelected();
+                windowRoot.activateSelected();
                 event.accepted = true;
             }
         }
 
         MouseArea {
             anchors.fill: parent
-            onClicked: root.dismiss()
+            onClicked: windowRoot.dismiss()
         }
     }
 
@@ -96,15 +122,15 @@ PanelWindow {
                 KeyNavigation.right: btnPowerOff
                 KeyNavigation.down: btnSleep
                 onClicked: {
-                    root.dismiss();
+                    windowRoot.dismiss();
                     SessionActions.reboot();
                 }
-                onEscapePressed: root.dismiss()
-                onHoverEntered: root.selectButton(0)
+                onEscapePressed: windowRoot.dismiss()
+                onHoverEntered: windowRoot.selectButton(0)
                 onHoverExited: if (!btnReboot.activeFocus)
                     currentAction.text = ""
                 onActiveFocusChanged: if (activeFocus) {
-                    root.selectedIndex = 0;
+                    windowRoot.selectedIndex = 0;
                     currentAction.text = text
                 }
             }
@@ -117,15 +143,15 @@ PanelWindow {
                 KeyNavigation.right: btnLogout
                 KeyNavigation.down: btnGif
                 onClicked: {
-                    root.dismiss();
+                    windowRoot.dismiss();
                     SessionActions.poweroff();
                 }
-                onEscapePressed: root.dismiss()
-                onHoverEntered: root.selectButton(1)
+                onEscapePressed: windowRoot.dismiss()
+                onHoverEntered: windowRoot.selectButton(1)
                 onHoverExited: if (!btnPowerOff.activeFocus)
                     currentAction.text = ""
                 onActiveFocusChanged: if (activeFocus) {
-                    root.selectedIndex = 1;
+                    windowRoot.selectedIndex = 1;
                     currentAction.text = text
                 }
             }
@@ -137,15 +163,15 @@ PanelWindow {
                 KeyNavigation.left: btnPowerOff
                 KeyNavigation.down: btnLock
                 onClicked: {
-                    root.dismiss();
+                    windowRoot.dismiss();
                     SessionActions.logout();
                 }
-                onEscapePressed: root.dismiss()
-                onHoverEntered: root.selectButton(2)
+                onEscapePressed: windowRoot.dismiss()
+                onHoverEntered: windowRoot.selectButton(2)
                 onHoverExited: if (!btnLogout.activeFocus)
                     currentAction.text = ""
                 onActiveFocusChanged: if (activeFocus) {
-                    root.selectedIndex = 2;
+                    windowRoot.selectedIndex = 2;
                     currentAction.text = text
                 }
             }
@@ -157,15 +183,15 @@ PanelWindow {
                 KeyNavigation.up: btnReboot
                 KeyNavigation.right: btnGif
                 onClicked: {
-                    root.dismiss();
+                    windowRoot.dismiss();
                     SessionActions.suspend();
                 }
-                onEscapePressed: root.dismiss()
-                onHoverEntered: root.selectButton(3)
+                onEscapePressed: windowRoot.dismiss()
+                onHoverEntered: windowRoot.selectButton(3)
                 onHoverExited: if (!btnSleep.activeFocus)
                     currentAction.text = ""
                 onActiveFocusChanged: if (activeFocus) {
-                    root.selectedIndex = 3;
+                    windowRoot.selectedIndex = 3;
                     currentAction.text = text
                 }
             }
@@ -181,14 +207,14 @@ PanelWindow {
                 KeyNavigation.right: btnLock
                 onClicked: {
                     console.log("Ehehehe");
-                    root.dismiss();
+                    windowRoot.dismiss();
                 }
-                onEscapePressed: root.dismiss()
-                onHoverEntered: root.selectButton(4)
+                onEscapePressed: windowRoot.dismiss()
+                onHoverEntered: windowRoot.selectButton(4)
                 onHoverExited: if (!btnGif.activeFocus)
                     currentAction.text = ""
                 onActiveFocusChanged: if (activeFocus) {
-                    root.selectedIndex = 4;
+                    windowRoot.selectedIndex = 4;
                     currentAction.text = text
                 }
             }
@@ -200,15 +226,15 @@ PanelWindow {
                 KeyNavigation.up: btnLogout
                 KeyNavigation.left: btnGif
                 onClicked: {
-                    root.dismiss();
+                    windowRoot.dismiss();
                     SessionActions.lock();
                 }
-                onEscapePressed: root.dismiss()
-                onHoverEntered: root.selectButton(5)
+                onEscapePressed: windowRoot.dismiss()
+                onHoverEntered: windowRoot.selectButton(5)
                 onHoverExited: if (!btnLock.activeFocus)
                     currentAction.text = ""
                 onActiveFocusChanged: if (activeFocus) {
-                    root.selectedIndex = 5;
+                    windowRoot.selectedIndex = 5;
                     currentAction.text = text
                 }
             }
@@ -228,11 +254,8 @@ PanelWindow {
 
     onVisibleChanged: {
         if (visible) {
-            root.selectButton(0);
+            windowRoot.selectButton(0);
         }
     }
-
-    function toggle() {
-        visible = !visible;
     }
 }
