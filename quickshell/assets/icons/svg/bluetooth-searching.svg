@@ -1,0 +1,10 @@
+<svg viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        :root, .palette0 {color: currentColor;
+            --color0: #fff;
+        }
+    </style>
+    <path d="M7 7 17 17l-5 5V2l5 5L7 17" />
+    <path d="M20.83 14.83a4 4 0 0 0 0-5.66" />
+    <path d="M18 12h0.01" />
+</svg>

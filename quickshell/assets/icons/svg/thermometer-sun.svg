@@ -1,0 +1,13 @@
+<svg viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        :root, .palette0 {color: currentColor;
+            --color0: #fff;
+        }
+    </style>
+    <path d="M12 9a4 4 0 0 0-2 7.5" />
+    <path d="M12 3v2" />
+    <path d="M6.6 18.4 5.2 19.8" />
+    <path d="M20 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0z" />
+    <path d="M4 13H2" />
+    <path d="M6.34 7.34 4.93 5.93" />
+</svg>

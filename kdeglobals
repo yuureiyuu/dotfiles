@@ -1,0 +1,169 @@
+[ColorEffects:Disabled]
+Color=69,56,79
+ColorAmount=0
+ColorEffect=0
+ContrastAmount=0.65
+ContrastEffect=1
+IntensityAmount=0.1
+IntensityEffect=2
+
+[ColorEffects:Inactive]
+Color=69,56,79
+ColorAmount=0
+ColorEffect=0
+ContrastAmount=0
+ContrastEffect=0
+IntensityAmount=0
+IntensityEffect=0
+
+[Colors:Button]
+BackgroundAlternate=44,37,53
+BackgroundNormal=44,37,53
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=161,109,151
+ForegroundInactive=163,164,185
+ForegroundLink=97,80,95
+ForegroundNegative=134,97,127
+ForegroundNeutral=181,146,178
+ForegroundNormal=217,215,228
+ForegroundPositive=139,127,142
+ForegroundVisited=97,80,95
+
+[Colors:Complementary]
+BackgroundAlternate=44,37,53
+BackgroundNormal=32,27,41
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=161,109,151
+ForegroundInactive=163,164,185
+ForegroundLink=97,80,95
+ForegroundNegative=134,97,127
+ForegroundNeutral=181,146,178
+ForegroundNormal=217,215,228
+ForegroundPositive=139,127,142
+ForegroundVisited=97,80,95
+
+[Colors:Header]
+BackgroundAlternate=44,37,53
+BackgroundNormal=32,27,41
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=161,109,151
+ForegroundInactive=163,164,185
+ForegroundLink=97,80,95
+ForegroundNegative=134,97,127
+ForegroundNeutral=181,146,178
+ForegroundNormal=217,215,228
+ForegroundPositive=139,127,142
+ForegroundVisited=97,80,95
+
+[Colors:Header][Inactive]
+BackgroundAlternate=44,37,53
+BackgroundNormal=32,27,41
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=161,109,151
+ForegroundInactive=163,164,185
+ForegroundLink=97,80,95
+ForegroundNegative=134,97,127
+ForegroundNeutral=181,146,178
+ForegroundNormal=163,164,185
+ForegroundPositive=139,127,142
+ForegroundVisited=97,80,95
+
+[Colors:Selection]
+BackgroundAlternate=161,109,151
+BackgroundNormal=161,109,151
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=217,215,228
+ForegroundInactive=217,215,228
+ForegroundLink=217,215,228
+ForegroundNegative=217,215,228
+ForegroundNeutral=217,215,228
+ForegroundNormal=217,215,228
+ForegroundPositive=217,215,228
+ForegroundVisited=217,215,228
+
+[Colors:Tooltip]
+BackgroundAlternate=44,37,53
+BackgroundNormal=44,37,53
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=161,109,151
+ForegroundInactive=163,164,185
+ForegroundLink=97,80,95
+ForegroundNegative=134,97,127
+ForegroundNeutral=181,146,178
+ForegroundNormal=217,215,228
+ForegroundPositive=139,127,142
+ForegroundVisited=97,80,95
+
+[Colors:View]
+BackgroundAlternate=44,37,53
+BackgroundNormal=22,19,29
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=161,109,151
+ForegroundInactive=163,164,185
+ForegroundLink=97,80,95
+ForegroundNegative=134,97,127
+ForegroundNeutral=181,146,178
+ForegroundNormal=217,215,228
+ForegroundPositive=139,127,142
+ForegroundVisited=97,80,95
+
+[Colors:Window]
+BackgroundAlternate=44,37,53
+BackgroundNormal=32,27,41
+DecorationFocus=161,109,151
+DecorationHover=97,80,95
+ForegroundActive=161,109,151
+ForegroundInactive=163,164,185
+ForegroundLink=97,80,95
+ForegroundNegative=134,97,127
+ForegroundNeutral=181,146,178
+ForegroundNormal=217,215,228
+ForegroundPositive=139,127,142
+ForegroundVisited=97,80,95
+
+[General]
+ColorScheme=AjisaiShell
+Name=AjisaiShell
+fixed=Mononoki Nerd Font Mono,13,-1,5,50,0,0,0,0,0,Regular
+font=Sawarabi Gothic,13,-1,5,50,0,0,0,0,0,Regular
+menuFont=Sawarabi Gothic,13,-1,5,50,0,0,0,0,0,Regular
+shadeSortColumn=true
+smallestReadableFont=Sawarabi Gothic,11,-1,5,50,0,0,0,0,0,Regular
+toolBarFont=Sawarabi Gothic,13,-1,5,50,0,0,0,0,0,Regular
+
+[Icons]
+Theme=AjisaiPapirus
+
+[KFileDialog Settings]
+Allow Expansion=false
+Automatically select filename extension=true
+Breadcrumb Navigation=true
+Decoration position=0
+Show Full Path=false
+Show Inline Previews=true
+Show Preview=false
+Show Speedbar=true
+Show hidden files=true
+Sort by=Name
+Sort directories first=true
+Sort hidden files last=false
+Sort reversed=false
+Speedbar Width=153
+View Style=Simple
+
+[UiSettings]
+ColorScheme=AjisaiShell
+
+[WM]
+activeBackground=44,37,53
+activeForeground=217,215,228
+inactiveBackground=32,27,41
+inactiveForeground=163,164,185
+

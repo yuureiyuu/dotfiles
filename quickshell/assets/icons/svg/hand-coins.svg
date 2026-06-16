@@ -1,0 +1,12 @@
+<svg viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none" width="32" height="32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        :root, .palette0 {color: currentColor;
+            --color0: #fff;
+        }
+    </style>
+    <path d="M11 15h2a2 2 0 1 0 0-4h-3c-0.6 0-1.1 0.2-1.4 0.6L3 17" />
+    <path d="M7 21l1.6-1.4C8.9 19.2 9.4 19 10 19h4c1.1 0 2.1-0.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
+    <path d="M2 16l6 6" />
+    <circle cx="16" cy="9" r="2.9" />
+    <circle cx="6" cy="5" r="3" />
+</svg>
